@@ -26,6 +26,11 @@ public class ExameController {
         return dao.findAll();
     }
 
+    @GetMapping("/listFacilDeploy")
+    public String readFall(){
+        return  "ok! Deploy Realizado";
+    }
+
     @PostMapping("/")
     public String createExame(@RequestBody Exame e){
         Exame aux = dao.save(e);
