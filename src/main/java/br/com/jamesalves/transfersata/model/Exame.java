@@ -1,6 +1,7 @@
 package br.com.jamesalves.transfersata.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "exame")
@@ -17,7 +18,7 @@ public class Exame {
     @ElementCollection
     @CollectionTable(name = "exame_requisito", joinColumns = @JoinColumn(name = "owner_id"))
     @Column(name = "requisito")
-    private List<Requisito> requisito;
+    private List<Requisito> requisito = new ArrayList<>();
 
     public List<Requisito> getRequisito() {
         return requisito;
@@ -41,5 +42,9 @@ public class Exame {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void addRequisito(Requisito r) {
+        requisito.add(r);
     }
 }
